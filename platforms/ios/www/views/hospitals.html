@@ -1,0 +1,11 @@
+<div class="app-header hospital">
+  <span class="project-name" ng-cloak><i class="fa fa-hospital-o"></i> {{_T('Closest Hospitals')}}</span>
+</div>
+
+<div class="frame projectlist">
+  <div data-ng-repeat="h in hospitals track by $index" class="list_item">
+  	  <div class="hospitals col-xs-12" ng-cloak ng-click="OpenMap($index);">
+  	  	{{h.name}}<br /><span>{{h.address}}</span>
+  	  </div>
+  	</div>
+</div>

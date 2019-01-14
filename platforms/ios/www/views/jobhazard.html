@@ -1,0 +1,14 @@
+<div class="app-header incident">
+  <span class="project-name" ng-cloak>
+    {{_T('Choose Job Hazard Report')}}
+  </span>
+</div>
+
+<div class="frame projectlist">
+  <div data-ng-repeat="i in jobhazards" class="list_item">
+  	<a href="" ng-click="selectjobhazardreport()" id="{{i.id}}">
+  	  <div class="aa col-xs-6" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" ng-cloak>{{i.sow}}</div>
+  	  <div class="aa col-xs-6" ng-cloak>{{i.created_at | date:'MM/dd/yyyy'}}</div>
+  	</a>
+  </div>
+</div>

@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Download-Settings" content="['images/']" />
+	<title>Custom Forms</title>
+	<link rel="stylesheet" type="text/css" href="css/jcf.css" />
+	<script type="text/javascript" src="js/jcf.js"></script>
+	<script type="text/javascript" src="js/jcf.scrollable.js"></script>
+	<script type="text/javascript" src="js/jcf.checkbox.js"></script>
+	<script type="text/javascript" src="js/jcf.select.js"></script>
+	<script type="text/javascript" src="js/jcf.select.multiple.js"></script>
+	<script type="text/javascript" src="js/jcf.textarea.js"></script>
+	<script type="text/javascript" src="js/jcf.radio.js"></script>
+	<script type="text/javascript" src="js/jcf.file.js"></script>
+	<script type="text/javascript">
+		// replace custom forms
+		jcf.lib.domReady(function(){
+			jcf.customForms.replaceAll();
+		});
+	</script>
+</head>
+<body>
+<div id="article">
+	<h1>Custom Forms and Scrollbars</h1>
+	<p>This script allows to style form elements and create custom scroll bars. The following elements are supported: custom scroll bars, &lt;select&gt;, &lt;input type="radio"&gt;, &lt;input type="checkbox"&gt;, &lt;input type="file"&gt;, &lt;textarea&gt;. To prevent some element from customizing put the "default" class on it.</p>
+	
+	<h2>Initialization of the script:</h2>
+	<p>To use the script copy the code from this page. Disabling one of the modules in the script disables the customization of its elements.</p>
+	<p>1. First of all you need to connect the jcf.js file. It is the base of the rest of scripts. Do this the following way in HTML:</p>
+	<pre class="html">
+		&lt;script type="text/javascript" src="js/jcf.js"&gt;&lt;/script&gt;                   &lt;!-- main script - the connection is obligatory --&gt;
+		&lt;script type="text/javascript" src="js/jcf.scrollable.js"&gt;&lt;/script&gt;        &lt;!-- custom scroll bars module --&gt;
+		&lt;script type="text/javascript" src="js/jcf.checkbox.js"&gt;&lt;/script&gt;          &lt;!-- custom checkboxes module --&gt;
+		&lt;script type="text/javascript" src="js/jcf.radio.js"&gt;&lt;/script&gt;             &lt;!-- custom radio buttons module --&gt;
+		&lt;script type="text/javascript" src="js/jcf.select.js"&gt;&lt;/script&gt;            &lt;!-- custom selects module (custom scrolls connect optionally) --&gt;
+		&lt;script type="text/javascript" src="js/jcf.select.multiple.js"&gt;&lt;/script&gt;   &lt;!-- custom multiple selects module --&gt;
+		&lt;script type="text/javascript" src="js/jcf.textarea.js"&gt;&lt;/script&gt;          &lt;!-- custom textarea module (needs the connection of custom scroll bars module) --&gt;
+		&lt;script type="text/javascript" src="js/jcf.file.js"&gt;&lt;/script&gt;              &lt;!-- custom input type file module --&gt;
+	</pre>
+	<p>2. Custom forms function is called after the connection of the rest of previous scripts:</p>
+	<pre class="html">
+		&lt;script type="text/javascript"&gt;
+			// replace all the custom elements after loading the page
+			jcf.lib.domReady(function(){
+				jcf.customForms.replaceAll();
+			});
+		&lt;/script&gt;
+	</pre>
+	<p>3. When you make sure that all scripts work fine you can write down the content of all of them in a one file, <strong>accordingly the order of their connection</strong>.</p>
+	<p>To understand the work of different scripts try to disable them one by one and see the result on a page in a browser.</p>
+	
+	<h2>The example of custom scroll bars connection only:</h2>
+	<pre class="html">
+		&lt;!-- the example of custom scroll bars connection only --&gt;
+		&lt;script type="text/javascript" src="js/jcf.js"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript" src="js/jcf.scrollable.js"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript"&gt;
+			// replace all the custom elements after loading the page
+			jcf.lib.domReady(function(){
+				jcf.customForms.replaceAll();
+			});
+		&lt;/script&gt;
+	</pre>
+	
+	<h2>Example:</h2>
+	<div class="live-example">
+		<form action="" method="post">
+			<fieldset>
+				<legend>Custom checkboxes</legend>
+				<ul class="controls-list">
+					<li>
+						<input id="chk1" type="checkbox" />
+						<label for="chk1">Label 1</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" />
+							<span>Label 2</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" disabled="disabled" />
+							<span>Label 3 (disabled)</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" class="default" />
+							<span>Label 4 (class="default")</span>
+						</label>
+					</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Custom radios</legend>
+				<ul class="controls-list">
+					<li>
+						<input id="rad1" type="radio" name="r1" />
+						<label for="rad1">Label 1</label>
+					</li>
+					<li>
+						<label>
+							<input type="radio" name="r1" />
+							<span>Label 2</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="radio" name="r1" disabled="disabled" />
+							<span>Label 3 (disabled)</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="radio" name="r2" class="default" />
+							<span>Label Test1 (class="default")</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="radio" name="r2" class="default" />
+							<span>Label Test2 (class="default")</span>
+						</label>
+					</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Custom file</legend>
+				<div class="file-list">
+					<div class="row">
+						<label for="file1">Attach file: </label>
+						<input id="file1" type="file" />
+					</div>
+					<div class="row">
+						<label for="file2">Attach file (disabled): </label>
+						<input id="file2" type="file" title="Disabled, try to attach!" disabled="disabled" />
+					</div>
+					<div class="row flip">
+						<label for="file3">Attach file (flip button): </label>
+						<input id="file3" type="file" title="Another one?" />
+					</div>
+					<div class="row">
+						<label for="file4">Attach file (custom title and button)</label>
+						<input id="file4" type="file" title="custom button text" />
+						<span class="file-input-text">custom input text</span>
+					</div>
+					<div class="row">
+						<label for="file5">Attach file (class="default")</label>
+						<input id="file5" type="file" class="default" />
+					</div>
+				</div>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Custom selects</legend>
+				<ul class="controls-list">
+					<li>
+						<label class="demo-label" for="seldef1">Select with default text <span>(&lt;select title="Please select..."&gt;)</span>:</label>
+						<select id="seldef1" title="Please select...">
+							<option>Option 1</option>
+							<option>Option 2</option>
+						</select>
+					</li>
+					<li>
+						<label class="demo-label" for="seldef2">Add class from option to list item <span>(&lt;option class="green"&gt;Please select...&lt;/option&gt; + css)</span>:</label>
+						<select id="seldef2">
+							<option class="bg-red">Red</option>
+							<option class="bg-green">Green</option>
+							<option class="bg-blue">Blue</option>
+						</select>
+					</li>
+					<li>
+						<label for="sel1">Select 1:</label>
+						<select id="sel1" style="width: 150px;">
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option>Option 6</option>
+							<option>Option 7</option>
+							<option>Option 8</option>
+							<option>Option 9</option>
+							<option>Option 10</option>
+							<option>Option 11</option>
+							<option>Option 12</option>
+							<option>Option 13</option>
+							<option>Option 14</option>
+							<option>Option 15</option>
+							<option>Option 16</option>
+							<option>Option 17</option>
+							<option>Option 18</option>
+							<option>Option 19</option>
+							<option>Option 20</option>
+							<option>Option 21</option>
+							<option>Option 22</option>
+							<option>Option 23</option>
+							<option>Option 24</option>
+							<option>Option 25</option>
+							<option>Option 26</option>
+							<option>Option 27</option>
+							<option>Option 28</option>
+							<option>Option 29</option>
+							<option>Option 30</option>
+							<option>Option 31</option>
+							<option>Option 32</option>
+							<option>Option 33</option>
+							<option>Option 34</option>
+							<option>Option 35</option>
+							<option>Option 36</option>
+							<option>Option 37</option>
+						</select>
+					</li>
+					<li>
+						<label for="sel2">Select 2 (with optgroup):</label>
+						<select id="sel2" style="width: 200px">
+							<optgroup label="optgroup1">
+								<option>Option 1</option>
+								<option>Option 2</option>
+							</optgroup>
+							<optgroup label="optgroup2">
+								<option>Option 1</option>
+								<option>Option 2</option>
+							</optgroup>
+						</select>
+					</li>
+					<li>
+						<label for="sel3">Select 3 (disabled):</label>
+						<select id="sel3" disabled="disabled" style="width: 200px">
+							<optgroup label="optgroup1">
+								<option>Option 1</option>
+								<option>Option 2</option>
+							</optgroup>
+							<optgroup label="optgroup2">
+								<option>Option 1</option>
+								<option>Option 2</option>
+							</optgroup>
+						</select>
+					</li>
+					<li>
+						<label class="demo-label" for="selico1">Select with images:</label>
+						<select id="selico1">
+							<option title="images/ico-chrome.png">Chrome</option>
+							<option title="images/ico-firefox.png">Firefox</option>
+							<option title="images/ico-opera.png">Opera</option>
+							<option title="images/ico-explorer.png">IE</option>
+						</select>
+					</li>
+					<li>
+						<label for="sel4">Select 4 (class="default"):</label>
+						<select id="sel4" class="default" style="width: 200px">
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+						</select>
+					</li>
+					<li>
+						<label for="sel5">Select 5 (multiple):</label>
+						<select id="sel5" style="width: 200px" multiple="multiple" size="7">
+							<optgroup label="optgroup1">
+								<option>Option 1</option>
+								<option>Option 2</option>
+							</optgroup>
+							<optgroup label="optgroup2">
+								<option selected="selected">Option 1</option>
+								<option selected="selected">Option 2</option>
+							</optgroup>
+						</select>
+					</li>
+					<li>
+						<label for="sel6">Select 6 (disabled):</label>
+						<select id="sel6" style="width: 200px" disabled="disabled" multiple="multiple" size="7">
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option selected="selected">Option 1</option>
+							<option selected="selected">Option 2</option>
+						</select>
+					</li>
+					<li style="display:none">
+						<label for="sel7">Select 7 (hidden):</label>
+						<select id="sel7" class="test-select">
+							<option>Option 1</option>
+							<option>Option Long</option>
+							<option>Option Longer</option>
+							<option>Option Longest</option>
+						</select>
+					</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Custom textarea</legend>
+				<div class="text-block">
+					<textarea rows="5" cols="60">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui neque, tempor in, fermentum vel, rutrum aliquam, mi. In quis massa adipiscing urna consequat mollis. Maecenas et leo. Suspendisse iaculis odio. In ac eros. Quisque elementum, justo non mattis pellentesque, odio nibh euismod dolor, quis scelerisque metus lacus consequat nisi. Sed nec turpis. Aenean ultrices purus dapibus orci. Fusce erat. Vivamus quis dolor vitae mi vulputate mollis. Sed tellus elit, tempus et, semper a, tincidunt in, justo. Vestibulum tincidunt turpis eget enim porta volutpat. Ut dapibus pulvinar erat. Sed eget libero nec leo consequat egestas. Etiam tempus ante eu urna. Phasellus egestas varius est. Nulla venenatis faucibus quam. Nunc purus ipsum, pharetra vel, cursus nec, rutrum in, turpis. Nam ornare dolor eget nisl. Aliquam erat volutpat. Curabitur et dolor vitae magna porttitor bibendum. Proin ipsum elit, molestie eget, pellentesque at, eleifend non, erat. Donec pede. Donec arcu nibh, vulputate et, dictum in, convallis at, nulla. Curabitur et elit. Praesent urna elit, facilisis et, dignissim in, imperdiet et, metus. Nullam magna dui, viverra non, feugiat eget, convallis non, massa.</textarea>
+				</div>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Custom scrollbars</legend>
+				<h3>Vertical scrollarea</h3>
+				<div class="scrollable-area">
+					<div class="text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui neque, tempor in, fermentum vel, rutrum aliquam, mi. In quis massa adipiscing urna consequat mollis. Maecenas et leo. Suspendisse iaculis odio. In ac eros. Quisque elementum, justo non mattis pellentesque, odio nibh euismod dolor, quis scelerisque metus lacus consequat nisi. Sed nec turpis. Aenean ultrices purus dapibus orci. Fusce erat. Vivamus quis dolor vitae mi vulputate mollis. Sed tellus elit, tempus et, semper a, tincidunt in, justo.</p>
+						<p>Vestibulum tincidunt turpis eget enim porta volutpat. Ut dapibus pulvinar erat. Sed eget libero nec leo consequat egestas. Etiam tempus ante eu urna. Phasellus egestas varius est. Nulla venenatis faucibus quam. Nunc purus ipsum, pharetra vel, cursus nec, rutrum in, turpis. Nam ornare dolor eget nisl. Aliquam erat volutpat. Curabitur et dolor vitae magna porttitor bibendum. Proin ipsum elit, molestie eget, pellentesque at, eleifend non, erat. Donec pede. Donec arcu nibh, vulputate et, dictum in, convallis at, nulla. Curabitur et elit. Praesent urna elit, facilisis et, dignissim in, imperdiet et, metus. Nullam magna dui, viverra non, feugiat eget, convallis non, massa.</p>
+						<p>Proin tincidunt, orci eu consectetur interdum, enim tellus imperdiet odio, id porttitor enim pede sit amet erat. Aenean vitae dolor in nisi pharetra facilisis. Aenean laoreet eros ac tellus condimentum porttitor. Nam pretium vehicula mi. Phasellus ornare mi et tortor. Fusce commodo sapien. Donec ac massa ut lorem luctus vulputate. Nulla eu tellus placerat mi vulputate tempus. Etiam lectus. Pellentesque pharetra libero et dui. Integer sem urna, dapibus ac, cursus eget, hendrerit ut, mauris. In sed lorem. Sed ac ligula. Sed in lorem ac lectus porttitor sodales. Maecenas lacinia. Donec bibendum sagittis metus. Sed tincidunt tortor ac quam. Quisque a magna. In iaculis venenatis leo.</p>
+						<p>Maecenas gravida ligula et magna. Donec ligula. Vivamus vel massa a sem aliquet imperdiet. Duis dapibus, tellus vitae auctor pretium, nisl nulla facilisis metus, a tempor dolor augue id nibh. Cras leo. Phasellus vehicula, augue et pellentesque condimentum, nisi nisi suscipit augue, condimentum convallis odio quam sed tortor. Sed sollicitudin. Phasellus consequat fermentum dolor. Quisque velit nibh, bibendum ut, placerat ac, scelerisque nec, neque. Pellentesque tristique metus nec pede sagittis adipiscing. Morbi hendrerit eleifend ligula. Maecenas erat lacus, facilisis a, hendrerit non, euismod a, magna. Mauris iaculis venenatis ante. Donec fermentum. Vestibulum non erat. Cras fringilla, neque et posuere condimentum, nibh metus ullamcorper dui, eu rhoncus ligula felis eget risus. Phasellus sit amet tellus. Maecenas eu sapien.</p>
+					</div>
+				</div>
+				
+				<h3>Horizontal scrollarea</h3>
+				<div class="scrollable-area hscrollable">
+					<div class="text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui neque, tempor in, fermentum vel, rutrum aliquam, mi. In quis massa adipiscing urna consequat mollis. Maecenas et leo. Suspendisse iaculis odio. In ac eros. Quisque elementum, justo non mattis pellentesque, odio nibh euismod dolor, quis scelerisque metus lacus consequat nisi. Sed nec turpis. Aenean ultrices purus dapibus orci. Fusce erat. Vivamus quis dolor vitae mi vulputate mollis. Sed tellus elit, tempus et, semper a, tincidunt in, justo.</p>
+						<p>Vestibulum tincidunt turpis eget enim porta volutpat. Ut dapibus pulvinar erat. Sed eget libero nec leo consequat egestas. Etiam tempus ante eu urna. Phasellus egestas varius est. Nulla venenatis faucibus quam. Nunc purus ipsum, pharetra vel, cursus nec, rutrum in, turpis. Nam ornare dolor eget nisl. Aliquam erat volutpat. Curabitur et dolor vitae magna porttitor bibendum. Proin ipsum elit, molestie eget, pellentesque at, eleifend non, erat. Donec pede. Donec arcu nibh, vulputate et, dictum in, convallis at, nulla. Curabitur et elit. Praesent urna elit, facilisis et, dignissim in, imperdiet et, metus. Nullam magna dui, viverra non, feugiat eget, convallis non, massa.</p>
+						<p>Proin tincidunt, orci eu consectetur interdum, enim tellus imperdiet odio, id porttitor enim pede sit amet erat. Aenean vitae dolor in nisi pharetra facilisis. Aenean laoreet eros ac tellus condimentum porttitor. Nam pretium vehicula mi. Phasellus ornare mi et tortor. Fusce commodo sapien. Donec ac massa ut lorem luctus vulputate. Nulla eu tellus placerat mi vulputate tempus. Etiam lectus. Pellentesque pharetra libero et dui. Integer sem urna, dapibus ac, cursus eget, hendrerit ut, mauris. In sed lorem. Sed ac ligula. Sed in lorem ac lectus porttitor sodales. Maecenas lacinia. Donec bibendum sagittis metus. Sed tincidunt tortor ac quam. Quisque a magna. In iaculis venenatis leo.</p>
+						<p>Maecenas gravida ligula et magna. Donec ligula. Vivamus vel massa a sem aliquet imperdiet. Duis dapibus, tellus vitae auctor pretium, nisl nulla facilisis metus, a tempor dolor augue id nibh. Cras leo. Phasellus vehicula, augue et pellentesque condimentum, nisi nisi suscipit augue, condimentum convallis odio quam sed tortor. Sed sollicitudin. Phasellus consequat fermentum dolor. Quisque velit nibh, bibendum ut, placerat ac, scelerisque nec, neque. Pellentesque tristique metus nec pede sagittis adipiscing. Morbi hendrerit eleifend ligula. Maecenas erat lacus, facilisis a, hendrerit non, euismod a, magna. Mauris iaculis venenatis ante. Donec fermentum. Vestibulum non erat. Cras fringilla, neque et posuere condimentum, nibh metus ullamcorper dui, eu rhoncus ligula felis eget risus. Phasellus sit amet tellus. Maecenas eu sapien.</p>
+					</div>
+				</div>
+				
+				<h3>Horizontal scrollarea (auto detect width of single child) - <em>.autodetect-width</em></h3>
+				<div class="scrollable-area hscrollable autodetect-width">
+					<ul class="thumbnails">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+					</ul>
+				</div>
+				
+				<h3>Vertical+Horizontal scrollarea</h3>
+				<div class="scrollable-area anyscrollable">
+					<div class="text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui neque, tempor in, fermentum vel, rutrum aliquam, mi. In quis massa adipiscing urna consequat mollis. Maecenas et leo. Suspendisse iaculis odio. In ac eros. Quisque elementum, justo non mattis pellentesque, odio nibh euismod dolor, quis scelerisque metus lacus consequat nisi. Sed nec turpis. Aenean ultrices purus dapibus orci. Fusce erat. Vivamus quis dolor vitae mi vulputate mollis. Sed tellus elit, tempus et, semper a, tincidunt in, justo.</p>
+						<p>Vestibulum tincidunt turpis eget enim porta volutpat. Ut dapibus pulvinar erat. Sed eget libero nec leo consequat egestas. Etiam tempus ante eu urna. Phasellus egestas varius est. Nulla venenatis faucibus quam. Nunc purus ipsum, pharetra vel, cursus nec, rutrum in, turpis. Nam ornare dolor eget nisl. Aliquam erat volutpat. Curabitur et dolor vitae magna porttitor bibendum. Proin ipsum elit, molestie eget, pellentesque at, eleifend non, erat. Donec pede. Donec arcu nibh, vulputate et, dictum in, convallis at, nulla. Curabitur et elit. Praesent urna elit, facilisis et, dignissim in, imperdiet et, metus. Nullam magna dui, viverra non, feugiat eget, convallis non, massa.</p>
+						<p>Proin tincidunt, orci eu consectetur interdum, enim tellus imperdiet odio, id porttitor enim pede sit amet erat. Aenean vitae dolor in nisi pharetra facilisis. Aenean laoreet eros ac tellus condimentum porttitor. Nam pretium vehicula mi. Phasellus ornare mi et tortor. Fusce commodo sapien. Donec ac massa ut lorem luctus vulputate. Nulla eu tellus placerat mi vulputate tempus. Etiam lectus. Pellentesque pharetra libero et dui. Integer sem urna, dapibus ac, cursus eget, hendrerit ut, mauris. In sed lorem. Sed ac ligula. Sed in lorem ac lectus porttitor sodales. Maecenas lacinia. Donec bibendum sagittis metus. Sed tincidunt tortor ac quam. Quisque a magna. In iaculis venenatis leo.</p>
+						<p>Maecenas gravida ligula et magna. Donec ligula. Vivamus vel massa a sem aliquet imperdiet. Duis dapibus, tellus vitae auctor pretium, nisl nulla facilisis metus, a tempor dolor augue id nibh. Cras leo. Phasellus vehicula, augue et pellentesque condimentum, nisi nisi suscipit augue, condimentum convallis odio quam sed tortor. Sed sollicitudin. Phasellus consequat fermentum dolor. Quisque velit nibh, bibendum ut, placerat ac, scelerisque nec, neque. Pellentesque tristique metus nec pede sagittis adipiscing. Morbi hendrerit eleifend ligula. Maecenas erat lacus, facilisis a, hendrerit non, euismod a, magna. Mauris iaculis venenatis ante. Donec fermentum. Vestibulum non erat. Cras fringilla, neque et posuere condimentum, nibh metus ullamcorper dui, eu rhoncus ligula felis eget risus. Phasellus sit amet tellus. Maecenas eu sapien.</p>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<div class="navbar-fixed-top row signup-header">
+  <div class="col-xs-3 text-left back">
+    <a href="#/" ng-cloak>&lt;{{_T('Back')}}</a>
+  </div>
+  <div class="col-xs-6 text-center title" ng-cloak>{{_T('New Account')}}</div>
+  <div class="col-xs-3 text-right home">
+    <a href="#/" ng-click="go_home()" ><i class="glyphicon glyphicon-home"></i></a>
+  </div>
+</div>
+
+<div class="app-header pencil">
+  <span class="project-name" ng-cloak>{{_T('Create Account')}}</span>
+</div>
+
+<div class="row">
+  <form id="userForm" class="signup-form">
+    <div class="relative">
+      <input type="email" id="emailTxt" name="emailTxt" ng-model="newuser.email" class="form-control input-lg" placeholder="{{_T('Email')}}" ng-cloak />
+    </div>
+    <div class="relative">
+      <input type="text" id="usernameTxt" name="usernameTxt" ng-model="newuser.username" class="form-control input-lg" placeholder="{{_T('User Name')}}" ng-cloak />
+    </div>
+    <div class="relative">
+      <input type="text" id="fnameTxt" name="fnameTxt" ng-model="newuser.first_name" class="form-control input-lg" placeholder="{{_T('First Name')}}"  ng-cloak
+      capitalize-first />
+    </div>
+    <div class="relative">
+      <input type="text" id="lnameTxt" name="lnameTxt" ng-model="newuser.last_name" class="form-control input-lg" capitalize-first  ng-cloak
+      placeholder="{{_T('Last Name')}}"/>
+    </div>
+    <div class="relative">
+      <input type="text" id="companyTxt" name="companyTxt" ng-model="newuser.company" class="form-control input-lg" ng-click="scrollWin()" capitalize-first  ng-cloak
+      placeholder="{{_T('Company')}}"/>
+    </div>
+    <div class="relative">
+      <input type="text" id="phoneTxt" name="phoneTxt" ng-model="newuser.phone" class="form-control input-lg" ng-click="scrollWin()" capitalize-first  ng-cloak
+      placeholder="{{_T('Phone')}}" />
+    </div>
+    <div class="relative">
+      <input type="text" id="addressTxt" name="addressTxt" ng-model="newuser.address" class="form-control input-lg" ng-click="scrollWin()" capitalize-first  ng-cloak
+      placeholder="{{_T('Address')}}" />
+    </div>
+    <div class="relative">
+      <input type="password" id="passwordTxt" name="passwordTxt" ng-model="newuser.password" class="form-control input-lg" ng-click="scrollWin()"  ng-cloak
+      placeholder="{{_T('Password')}}" />
+    </div>
+    <div class="relative">
+      <input class="form-control input-lg" type="password" name="password_conTxt" required="" data-ng-model="newuser.password_confirmation" data-ng-match="password" ng-click="scrollWin()" placeholder="{{_T('Password Confirmation')}}"  ng-cloak/>
+    </div>
+    <div id="error-div" class="hidden">
+      <h4 class="text-danger " ng-cloak>
+        {{error}}
+      </h4>
+    </div>
+    <br/>
+    <div class="button-group">
+      <button type="submit" role="submit" class="btn btn-primary btn-block btn-lg btn-submit" data-loading-text="Please wait. It take"  ng-cloak>
+        {{_T('Save')}}
+      </button>
+    </div>
+  </form>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

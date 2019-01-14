@@ -1,0 +1,17 @@
+<div class="app-header open">
+  <span class="project-name" ng-cloak>{{_T('Open Projects')}}</span>
+</div>
+
+<!-- <div id="lsproject" class="hidden"> -->
+<div class="frame projectlist">
+  <div data-ng-repeat="i in projectls" class="list_item">
+  	<a href="" ng-click="selectproject()" id="{{i.key}}" 
+      class="pull-left" style="min-width: 200px; width: calc(100% - 60px); overflow: hidden;">
+  	  <div class="aa overflow-hidden" ng-cloak>{{i.value}}</div>
+  	</a>
+  	<button class="pull-right btn-edit" 
+      ng-click="editproject()" id="{{i.key}}" ng-cloak></button>
+    <div class="clearfix"></div>
+  </div>
+</div>
+

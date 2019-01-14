@@ -1,0 +1,61 @@
+
+<div class="app-header answer-header" style="min-height: 60px !important;
+height: auto; background-color: #838280; padding-left: 20px;">
+<span style="font-size:65%; color: white;">{{question_body}}</span>
+</div>
+
+<div id="">
+  <h3 class="col-xs-6" style="z-index:10000;color: white; margin:8px 0 0 0%;">{{project.name}}</h3>
+</div>  
+
+<div class="answers"  ng-show="isQuestionSelected">
+  <div class="answer-buttons btn-group btn-block center" style="width: 100%">
+    <button type="button" class="btn btn-success col-xs-3 answer-item" ng-click="selectAnswer('yes')" ng-cloak><i id = "yes" class="white_dot answer-sub-item" ></i> {{_T('Yes')}}</button>
+    <button type="button" class="btn btn-danger col-xs-3 answer-item" ng-click="selectAnswer('no')" ng-cloak><i id = "no" class="white_dot answer-sub-item"></i> {{_T('No')}}</button>
+    <button type="button" class="btn btn-primary col-xs-3 answer-item" ng-click="selectAnswer('na')" ng-cloak><i id = "na" class="white_dot answer-sub-item"></i> {{_T('NA')}}</button>
+    <button type="button" class="btn btn-warning col-xs-3 answer-item" ng-click="selectAnswer('re')" ng-cloak><i id = "res" class="white_dot answer-sub-item" ></i> {{_T('Res')}}</button>
+
+    <br>
+
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="control col-xs-12" >
+      <br/>
+      <button type="button" class="btn btn-primary btn-block  btn-lg" ng-click="submitanswer()" ng-cloak>{{_T('Submit')}}</button>
+    </div>
+      <br/>
+      <label class="col-xs-1 control" class="control-label" style="margin-top: 20px; margin-left:0%;" ng-cloak>
+        {{_T('Notes')}}
+      </label>
+      <textarea id="aaa" type="text" name="notesTxt" id="notesTxt" class="form-control" ng-model="textModel" rows="2" cols="40" style="margin-left:0%; height:180px;" 
+      capitalize-first></textarea>
+    <div class="col-xs-12 row" style="margin-top: 20px;">
+      <div class="col-xs-6 pull-left row text-center">
+        <button type="button" id="email-button" style="margin-top:3px; height: 40px;" class="btn btn-warning btn-lg col-xs-12 icon-email"  ng-click="sendEmail()" ng-cloak></button>
+        <button type="button"  style="margin-top: 3px; height: 40px;" id="disable-button1" class="btn btn-warning col-xs-12 disabled hidden btn-lg"  ng-click="sendEmail()" ng-cloak>{{_T('Please wait...')}}</button>
+      </div>
+      <div class="col-xs-6 pull-left row text-center">
+        <button type="button"  style="margin-top:3px; height: 40px;"  id="camera-button" class="btn btn-picture col-xs-12 btn-lg icon-camera"  ng-click="takePic()" ng-cloak></button>
+        <button type="button"  style="margin-top:3px; height: 40px;" id="disable-button" class="btn btn-primary col-xs-12 disabled hidden btn-lg"  ng-click="sendEmail()" ng-cloak>{{_T('Uploading image. Please wait...')}}</button>
+      </div>
+
+
+      <div class="col-xs-8 col-xs-offset-1" >
+        <a href='' id="picurl" class="hidden" target="_blank" ng-cloak>{{_T('Click to view')}}</a>
+      </div>
+
+      <span id="ans-id"></span>
+    </div>
+    <br/><br/>
+    <div class="col-xs-10 col-xs-offset-1 text-center" style="margin-top: 10px;">
+      <div ng-class="imagectrl" id="picupload" class="hidden">
+        <img ng-src={{file}} ng-repeat="file in files" style="width: 100%;"></img>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<br/><br/><br/><br/><br/><br/>

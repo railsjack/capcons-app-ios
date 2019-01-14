@@ -1,0 +1,52 @@
+<div class="app-header">
+  <span class="project-name">Edit Project</span>
+</div>
+<div id="heading">
+  <h3 class="col-xs-6" style="z-index:10000;color: white; margin:5px 0 0 0%; font-size:18px; ">{{project.name}}</h3>
+</div> 
+<br/><br/>
+
+<!-- <div class="alert alert-info">
+  <strong>Project Name:</strong>{{projectedit.name}}<br/>
+  <strong>Address:</strong>{{projectedit.address}}<br/>
+  <strong>Contact Name:</strong>{{projectedit.contact_info}}
+</div>
+<br/>
+<br/> -->
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <form id="editprojectForm" class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="nameTxt">Name </label>  
+            <div class="controls">
+              <input type="text" id="nameTxt" name="nameTxt" ng-model="project.name" class="form-control" ng-click="scrollWin()" capitalize-first/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="addressTxt">Location </label>  
+            <div class="controls">
+              <input type="text" id="addressTxt" name="addressTxt" ng-model="project.address" class="form-control" ng-click="scrollWin()" capitalize-first/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="contactTxt">Contact Name </label>  
+            <div class="controls">
+              <input type="text" id="contactTxt" name="contactTxt" ng-model="project.contact_info" class="form-control" ng-click="scrollWin()" capitalize-first/>
+            </div>
+          </div>
+          <!-- <h4 class="text-danger" ng-show="showError">
+            There was an error saving the project
+          </h4> -->
+          <br/>
+          <div class="button-group">
+            <button type="submit" role="submit" class="btn btn-primary btn-block">
+              Save
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

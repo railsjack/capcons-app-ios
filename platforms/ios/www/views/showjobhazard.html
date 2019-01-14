@@ -1,0 +1,108 @@
+<div class="app-header" style="padding-left: 10px;">
+  <span class="project-name" ng-cloak>
+    {{_T('Job Hazard Analysis Report details')}}
+  </span>
+</div>
+<br/>
+<div class="container-fluid">
+  <div class="container">
+    <div class="content" style="width:95%; margin: 0 auto;">
+      <div class="">
+        <div class="login-form">
+          <table class="table table-striped">
+            <tr>
+              <td style="background-color: lightgray;" ng-cloak colspan="2">
+              {{_T('Scope of work to be performed')}}
+              </td>
+            </tr>
+            <tr>
+                <td ng-cloak colspan="2">{{jobhazard.sow}}</td>
+            </tr>
+
+            <tr>
+                <td style="background-color: lightgray;" ng-cloak colspan="2">
+                    {{_T('What are the critical steps?')}}
+                </td>
+            </tr>
+            <tr>
+                <td ng-cloak colspan="2">{{jobhazard.criticalsteps}}</td>
+            </tr>
+
+            <tr>
+                <td style="background-color: lightgray;" ng-cloak colspan="2">
+                    {{_T('What are the error likely situations?')}}
+                </td>
+            </tr>
+            <tr>
+                <td ng-cloak colspan="2">{{jobhazard.situations}}</td>
+            </tr>
+            
+            <tr>
+                <td style="background-color: lightgray;" ng-cloak colspan="2">
+                    {{_T('What is the worst that can happen?')}}
+                </td>
+            </tr>
+            <tr>
+                <td ng-cloak colspan="2">{{jobhazard.worsthappen}}</td>
+            </tr>
+            
+            <tr>
+                <td style="background-color: lightgray;" ng-cloak colspan="2">
+                    {{_T('What defenses are in place?')}}
+                </td>
+            </tr>
+            <tr>
+                <td ng-cloak colspan="2">{{jobhazard.defenses}}</td>
+            </tr>
+            <tr>
+                <td style="background-color: lightgray;" ng-cloak colspan="2">
+                    Creation date
+                </td>
+            </tr>
+            <tr>
+                <td ng-cloak colspan="2">{{jobhazard.created_at | date:'MM/dd/yyyy'}}</td>
+            </tr>
+
+            <div id="pic1" class="hidden">
+            <tr>
+              <td ng-cloak>{{_T('Image')}}</td>
+              <td><img ng-src={{filea}} ng-repeat="filea in fileas" style="height:150px; width:150px;"></img></td>
+            </tr>
+            </div>
+
+            <tr>
+              <td colspan="2" style="padding:2px;">
+                <div style="padding: 10px; border: solid 1px green; border-radius: 5px; ">
+                  <form id="emailForm" class="form-horizontal">
+                    
+                    <div id="mailsent" class="hidden" style="margin-top:5px;">
+                      <div class="alert alert-success">
+                        <p ng-cloak>{{_T('Email successfully sent.')}}</p>
+                      </div> 
+                    </div>
+
+                    <div style="margin-bottom: 10px; "><strong ng-cloak>
+                      {{_T('Send Email')}}
+                    </strong></div>
+                    <input type="email" id="emailTxt" name="emailTxt" ng-model="user1.email" class="form-control" style="width: 100%;"  ng-cloak
+                    placeholder="{{_T('Email')}}" />
+
+                    <select id="usernameselect" name="usernameTxt" ng-options="email for email in emails" ng-model="sendemail" class=" form-control" ng-change="selectemail()"
+                    style="width: 100%;height: 35px;background-color: #fff; margin-top: 10px;" placeholder="Select">
+                      <option value="" ng-cloak>{{_T('Or choose from this list')}}</option>
+                    </select>
+                    <input type="submit" value="{{_T('Send Email')}}" class="btn btn-primary btn-block" style="margin-top: 10px;width: 100%;" ng-click="sendJobhazardEmail()" data-loading-text="{{_T('Please wait. Sending email...')}}" ng-cloak />
+
+                  </form>
+                </div>
+              </td>
+              
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>         
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>

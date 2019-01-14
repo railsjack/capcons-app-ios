@@ -1,0 +1,38 @@
+<div class="app-header">
+  <span class="project-name" ng-cloak>{{_T('Start a New Project')}}</span>
+</div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <form id="projectForm" class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="nameTxt" ng-cloak>{{_T('Project Name')}}</label>  
+            <div class="controls">
+              <input type="text" id="nameTxt" name="nameTxt" ng-model="project.name" class="form-control" capitalize-first/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="addressTxt" ng-cloak>{{_T('Location')}}</label>  
+            <div class="controls">
+              <input type="text" id="addressTxt" name="addressTxt" ng-model="project.address" class="form-control" capitalize-first/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="contactTxt" ng-cloak>{{_T('Contact Name')}}</label>  
+            <div class="controls">
+              <input type="text" id="contactTxt" name="contactTxt" ng-model="project.contact_info" class="form-control" capitalize-first/>
+            </div>
+          </div>
+          <!-- <h4 class="text-danger" ng-show="showError">
+            There was an error saving the project
+          </h4> -->
+          <br/>
+          <div class="button-group">
+            <button type="submit" role="submit" class="btn btn-primary btn-block" data-loading-text="{{_T('Loading New Project')}}" style="width:96%;" ng-cloak>
+              {{_T('Save')}}
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

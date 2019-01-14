@@ -1,0 +1,58 @@
+<style>
+  .app-header{
+    line-height: 20px;
+  }
+</style>
+<div class="app-header checklist">
+  <span class="project-name" ng-cloak>
+    {{_T('Open a Check List')}}
+    <br>
+    <span class='checklist-name uppercase' ng-cloak>
+      {{project.value}}
+    </span>
+  </span>
+</div>
+
+<!-- <div id="">
+	<h3 class="col-xs-6" style="z-index:10000;color: white; margin:8px 0 0 0%;">{{project.value}}</h3>
+</div>  
+<br/><br/>
+
+<div data-ng-repeat="i in checkls">
+  <div class="aa">
+  <a href="" ng-click="selectcheckls()" id="{{i.key}}">{{i.value}}</a>
+  </div>
+</div> -->
+<div class="layout" style="margin-top: 120px; height: calc(100% - 255px)">
+<div class="frame" style="height: 100%">
+<div data-ng-repeat="i in checkls" class="list_item" ng-scrollbar rebuild-on="rebuild:me">
+<a href="" ng-click="selectcheckls()" id="{{i.key}}">
+  <div class="aa" ng-cloak>
+  {{i.value}} {{i.catname}}  ( {{i.issues}}  ) 
+  </div></a>
+</div>
+</div>
+</div>
+<br>
+<div class="open-checklist">
+  <button type="button" id="add_checklist" 
+    class="btn btn-warning btn-lg btn-block" 
+    ng-click="addchecklist()" data-loading-text="{{_T('Please wait...')}}" ng-cloak>
+    {{_T('Add New Checklist')}}
+  </button>
+  <button type="button" id="add_checklist_disabled"
+    class="btn btn btn-primary btn-lg btn-block hidden disabled"  
+    data-loading-text="{{_T('Please wait...')}}" ng-cloak>{{_T('Please wait...')}}</button>
+</div>
+<div class="open-checklist2">
+  <div class="btn-group" role="group" aria-label="...">
+  <button type="button"  class="btn btn-primary btn-lg" 
+    ng-click="view_incident()" ng-cloak>{{_T('View incident report')}}</button>
+  <button type="button" class="btn btn-primary btn-lg" 
+  ng-click="create_incident()" ng-cloak>{{_T('Add incident report')}}</button>
+  <button type="button" class="btn btn-default btn-lg" style="background-color: #9d9d9d; color: white;" 
+  ng-click="view_jobhazard()" ng-cloak>{{_T('View JHA')}}</button>
+  <button type="button" class="btn btn-default btn-lg" style="background-color: #9d9d9d; color: white;"
+  ng-click="create_jobhazard()" ng-cloak>{{_T('Add JHA')}}</button>
+  </div>
+</div>

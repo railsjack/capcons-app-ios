@@ -1,0 +1,96 @@
+
+<!-- <div class="app-header">
+  <small> {{question_body}}</small>
+</div> -->
+
+<div class="app-header">
+  <i></i><span style="font-size:65%;">{{question_body}}</span>
+  </div>
+
+<div id="">
+  <h3 class="col-xs-6" style="z-index:10000;color: white; margin:8px 0 0 0%;">{{project.name}}</h3>
+</div>  
+
+<div class="answers"  ng-show="isQuestionSelected">
+  <div class="btn-group btn-block center">
+    <button type="button" class="btn btn-success col-xs-3" ng-click="selectAnswer('yes')"><i id = "yes" class="black_dot" ></i> Yes</button>
+    <button type="button" class="btn btn-danger col-xs-3" ng-click="selectAnswer('no')"><i id = "no" class="black_dot"></i> No</button>
+    <button type="button" class="btn btn-primary col-xs-3" ng-click="selectAnswer('na')"><i id = "na" class="black_dot"></i> NA</button>
+    <button type="button" class="btn btn-warning col-xs-3" ng-click="selectAnswer('re')"><i id = "res" class="black_dot" ></i> Resolved</button>
+
+    <!-- <input type="radio" name="vl" style="margin-left:10%;" ng-click="selectAnswer('yes')"/>Yes<i id = "yes" ></i>
+    <input type="radio" name="vl" style="margin-left:13%;" ng-click="selectAnswer('no')"/>No<i id = "no" ></i> 
+    <input type="radio" name="vl" style="margin-left:12%;" ng-click="selectAnswer('na')"/> NA<i id = "na" ></i>
+    <input type="radio" name="vl" style="margin-left:12%;" ng-click="selectAnswer('re')"/><span>Resolved</span><i id = "res" ></i> -->
+
+    <!-- <div class="col-xs-3 btn-group" data-toggle="buttons" style="text-align: center">
+      <button type="button" ng-class="getResolveCss()" ng-click="changeResolve()">
+        <i ng-class="getResolveIcon()"></i>{{resolvedStatus}}  
+      </button> 
+    </div> -->
+    <br><br>
+   
+  </div>
+  <!-- <div class="control-group">
+    <label for="notesTxt" class="control-label">Notes</label>
+    <div class="controls">
+      <textarea name="notesTxt" id="notesTxt" class="form-control" ng-model="textModel" rows="4" cols="20">
+        
+      </textarea>
+    </div>
+  </div> -->
+  <br>
+  <div class="row">
+    <!-- <div class="col-xs-4 btn-group" data-toggle="buttons" style="text-align: center">
+      <button type="button" ng-class="getResolveCss()" ng-click="changeResolve()">
+        <i ng-class="getResolveIcon()"></i>{{resolvedStatus}}  
+      </button> 
+    </div> -->
+    
+    <label class="col-xs-1 control" class="control-label" style="margin-left:0%;">Notes</label>
+    <br/>
+    <div class="control col-xs-12" >
+    <!-- <input type="text" name="notesTxt" id="notesTxt" class="form-control" ng-model="textModel"  style="margin-left:0%;"/> -->
+      <textarea id="aaa" type="text" name="notesTxt" id="notesTxt" class="form-control" ng-model="textModel" rows="4" cols="40" style="margin-left:0%;" ng-click="scrollWin()" capitalize-first>
+        
+      </textarea>
+    </div>
+  <div class="col-xs-12">
+    <br/><br/>
+    <div class="col-xs-8 col-xs-offset-1">
+      <button type="button" id="camera-button" class="btn btn-picture btn-block pull-left"  ng-click="takePic()"><i class="fa fa-camera"></i></button>
+    </div>
+
+    <div class="col-xs-8 col-xs-offset-1" >
+      <a href='' id="picurl" class="hidden" target="_blank">Click to view</a>
+    </div>
+    <br/>
+
+    <div class="col-xs-8 col-xs-offset-1">
+
+      <button type="button" id="disable-button" class="btn btn-primary btn-block pull-left disabled hidden"  ng-click="sendEmail()">Uploading image. Please wait...</button>
+
+      <button type="button" id="disable-button1" class="btn btn-primary btn-block pull-left disabled hidden"  ng-click="sendEmail()">Please wait...</button>
+      <button type="button" id="email-button" class="btn btn-primary btn-block pull-left"  ng-click="sendEmail()"><i class="fa fa-envelope-o" ></i></button>
+    </div>
+    <br/>
+    <div class="col-xs-8 col-xs-offset-1">
+      <button type="button" class="btn btn-success btn-block " ng-click="submitanswer()" style="margin-top:3px;"><i class="fa"></i> Submit</button>    
+    </div>
+
+      <span id="ans-id"></span>
+  </div>
+  <br/><br/>
+  <div class="col-xs-12 image_area">
+    <div ng-class="imagectrl" id="picupload" class="hidden">
+      <img ng-src={{file}} style="height:150px; width:150px;"></img>
+      <!-- <img ng-src="Logo.png" style="height:100px; width:100px;"> -->
+    </div>
+  </div>
+    <!-- <div class="col-xs-11">
+      <button type="button" class="btn btn-success btn-block " ng-click="submitanswer()"><i class="fa"></i> Submit</button>    
+    </div> -->
+  </div>
+  </div>
+</div>
+<br/><br/><br/><br/><br/><br/>

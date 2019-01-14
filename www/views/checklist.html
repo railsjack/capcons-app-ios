@@ -1,0 +1,51 @@
+<style>
+  .app-header{
+    line-height: 20px;
+  }
+</style>
+<div class="app-header checklist">
+  <span class="project-name" ng-cloak>
+    {{_T('Open a Check List')}}
+    <br>
+    <span class='checklist-name uppercase' ng-cloak>
+      {{project.value}}
+    </span>
+  </span>
+</div>
+
+<!-- <div id="">
+	<h3 class="col-xs-6" style="z-index:10000;color: white; margin:8px 0 0 0%;">{{project.value}}</h3>
+</div>  
+<br/><br/>
+
+<div data-ng-repeat="i in checkls">
+  <div class="aa">
+  <a href="" ng-click="selectcheckls()" id="{{i.key}}">{{i.value}}</a>
+  </div>
+</div> -->
+<div class="layout">
+<div class="frame">
+<div data-ng-repeat="i in checkls" class="list_item" ng-scrollbar rebuild-on="rebuild:me">
+<a href="" ng-click="selectcheckls()" id="{{i.key}}">
+  <div class="aa" ng-cloak>
+  {{i.value}} {{i.catname}}  ( {{i.issues}}  ) 
+  </div></a>
+</div>
+</div>
+</div>
+<br><br>
+<div class="open-checklist">
+  <button type="button" id="add_checklist" 
+    class="btn btn-primary btn-lg btn-block" 
+    ng-click="addchecklist()" data-loading-text="{{_T('Please wait...')}}" ng-cloak>
+    {{_T('Add New Checklist')}}
+  </button>
+  <button type="button" id="add_checklist_disabled"
+    class="btn btn btn-primary btn-lg btn-block hidden disabled"  
+    data-loading-text="{{_T('Please wait...')}}" ng-cloak>{{_T('Please wait...')}}</button>
+  <button type="button"  class="btn btn btn-warning btn-lg btn-block" 
+    ng-click="view_incident()" ng-cloak>{{_T('View incident reports')}}</button>
+  <button type="button" class="btn btn-default btn-lg btn-block" style="background-color: #9d9d9d; color: white;" 
+  ng-click="create_incident()" ng-cloak>{{_T('Add incident report')}}</button>
+  
+</div>

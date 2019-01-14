@@ -1,0 +1,120 @@
+<div class='disclaimer-box' style="
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    position: absolute;
+    top: 10px;
+    /* margin-top: 50px; */
+    background-color: white;
+    z-index: 10;
+    overflow: hidden;
+    left: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    display: none;
+" class="ng-scope"><div style="
+    height: calc(100% - 50px);
+    overflow: auto;
+">Construction Safety should be administered as a program and the responsibility to create and implement each program lies within each company.  The information contained in this app is based upon information that is believed to be accurate but is provided without guarantee or representation as to accuracy.  Advice, graphics, images and information contained in this app is presented for general educational and information purposes and to increase overall safety awareness. It is not intended to provide legal or other expert advice or services, and should not be used in place of consultation with appropriate professionals. The information contained in this site should not be considered exhaustive and the user should seek the advice of appropriate professionals.
+In no event shall Capital Construction Solutions, LLC and its trustees, officers and employees be liable for any liability, loss, injury or risk (including, without limitation, incidental and consequential damages, personal injury/wrongful death, lost profits or damages) which is incurred or suffered as a direct or indirect result of the use of any of the material, advice, guidance or services on this site, whether based on warranty, contract, tort, or any other legal theory and whether or not Capital Construction Solutions, LLC or any of its trustees, officers or employees is advised of the possibility of such damages. CAPITAL CONSTRUCTION SOLUTIONS, LLC, TO THE FULLEST EXTENT PERMITTED BY LAW, DISCLAIMS ALL WARRANTIES, EITHER EXPRESS OR IMPLIED, STATUTORY OR OTHERWISE, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT OF THIRD PARTIES' RIGHTS AND FITNESS FOR PARTICULAR PURPOSE.</div>
+<a class="btn btn-default btn-block btn-signup ng-binding" style="
+    margin-top: 14px;
+" ng-click="close_disclaimer_box()">
+OK      </a>
+</div>
+
+<!--div class="language-selector">
+  <a class="btn btn-success btn-small" href="main_en.html">EN</a>
+  <a class="btn btn-danger btn-small" href="main_es.html">ES</a>
+</div-->
+<div class="text-center">
+  <img src="images/logo.png?_=2" class="logo">
+</div>
+<div id="userin" class="hidden">
+  <div class="alert notice">
+    <p >{{usersignup}}</p>
+  </div> 
+</div>
+<div class="row">
+
+  <form id="loginForm" novalidate class="form-horizontal login-form">
+    <div class="relative">
+      <input type="text" id="usernameTxt" name="usernameTxt" 
+      ng-model="user.username" ng-focus="username_focus($event)"
+      class="form-control no-border input-lg username" autocomplete="off"  ng-cloak
+      placeholder="{{_T('Username')}}"  />
+      <div class="username-list-container">
+          <ul class="username-list">
+            <li ng-repeat="username in credentials | filter: user.username" 
+            data-password="{{username.value}}" ng-cloak onclick="console.log('here');"
+            ng-click="select_credential(username)">{{username.key}}</li>
+          </ul>
+        </div>
+    </div>
+    <div class="credential-list-overlay hidden" ng-click="close_credential_list();">
+      <div class="credential-list">
+        <ul>
+          <li ng-click="select_credential({key:'', value:''})"><em ng-cloak>{{_T('Blank')}}</em></li>
+          <li ng-repeat="credential in credentials" data-password="{{credential.value}}" 
+          ng-click="select_credential(credential)" ng-cloak>{{credential.key}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="relative">
+      <input type="password" id="passwordTxt" 
+      name="passwordTxt" ng-model="user.password"  ng-cloak
+      class="form-control no-border input-lg password" 
+      placeholder="{{_T('Password')}}"/>
+    </div>
+
+    
+    
+    <div class="relative pull-left" style="padding: 5px;">
+      <input type="checkbox" type="checkbox" name="rememberTxt" id="rememberTxt" ng-model="user.remember" class="css-checkbox">
+      <label for="rememberTxt" class="css-label remember-me lite-gray-check" ng-cloak>
+      {{_T('Remember me?')}}</label>
+    </div>
+    
+    <div class='clearfix'></div>
+    
+	<div class="relative pull-left" style="padding: 5px;width: 150px;">
+	      <input type="checkbox" name="chkDisclaimer" id="chkDisclaimer" ng-model="user.chkDisclaimer" 
+	      	class="css-checkbox ng-pristine ng-valid">
+	      <label for="chkDisclaimer" class="css-label remember-me lite-gray-check ng-binding">
+	      Yes, I agree with <a ng-click="open_disclaimer_box()" style="
+	    color: #9a9a9a;
+	    border-bottom: dashed 1px #9a9a9a;
+	    height: 24px;
+	    display: inline-block;
+	    width: 63px;
+	    text-indent: 0;
+		">disclaimer</a></label>
+	</div>
+	    
+	    
+    <div class="relative pull-right" style="padding: 5px;">
+      <a class="forgot-password" href="" ng-click="forgotpassword()" ng-cloak>
+        {{_T('Forgot password?')}}
+      </a>
+    </div>
+    <div class="clearfix"></div>
+    <h4 class="text-danger text-center" ng-show="invalidCredentials" ng-cloak>
+      {{_T('The username and password combination is wrong.')}}
+    </h4>
+    <div class="relative">
+      <button type="submit" role="submit" class="btn btn-primary btn-lg btn-block btn-signin" data-loading-text="{{_T('Validating...')}}" ng-cloak>
+        {{_T('Sign in')}}
+      </button>
+    </div>
+    <div class="relative">
+      <a class="btn btn-default btn-block btn-lg btn-signup" ng-click="addUser()" ng-cloak>
+        {{_T('Sign Up')}}
+      </a>
+    </div>
+  </form>
+
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script>
+  setTimeout(function(){$('input:first').trigger('change');},500);
+</script>

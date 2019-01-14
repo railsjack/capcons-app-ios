@@ -1,0 +1,113 @@
+<div class="app-header incident" >
+  <span class="project-name" ng-cloak>
+    {{_T('New Incident Report')}}
+  </span>
+</div>
+
+<div class="row">
+  <form id="reportForm" class="form-horizontal">
+    <div class="relative">
+      <input type="text" id="typeTxt" name="typeTxt" 
+        placeholder="{{_T('Report Type')}}" ng-cloak
+        ng-model="report.report_type" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="yourNameTxt" name="yourNameTxt" 
+        placeholder="{{_T('Your Name')}}" ng-cloak
+        ng-model="report.your_name" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="jobTitleTxt" name="jobTitleTxt" 
+        placeholder="{{_T('Job Title')}}" ng-cloak
+        ng-model="report.job_title" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative" style="height: 60px; background: white; border-bottom: solid 1px #eee;" >
+      <label class="control-label pull-left" 
+      onclick="setTimeout(function(){$('#injuryDateTxt').trigger('click');},100);" ng-cloak
+      style="font-size: 13pt; font-weight: normal; line-height: 45px; text-indent: 18px;">{{_T('Injury Date')}}</label>
+      <input class="pull-right" type="date" 
+        style="width: 150px; height: 35px; margin-top: 12px; text-align: right; border: none;" 
+        id="injuryDateTxt" name="injuryDateTxt" 
+        placeholder="{{_T('Injury Date')}}" ng-cloak
+        ng-model="report.injury_date" class="input-lg"/>
+    </div>
+    <div class="relative" style="height: 60px; background: white; border-bottom: solid 1px #eee;">
+      <label class="control-label pull-left" 
+      onclick="setTimeout(function(){$('#injuryTimeTxt').trigger('click');},100);" ng-cloak
+      style="font-size: 13pt; font-weight: normal; line-height: 45px; text-indent: 18px;">
+        {{_T('Time of Injury')}}</label>
+      <input type="time" class="pull-right"
+        style="width: 150px; height: 35px; margin-top: 12px; text-align: right; border: none;" 
+        id="injuryTimeTxt" name="injuryTimeTxt" 
+        placeholder="{{_T('Time of Injury')}}" ng-cloak
+        ng-model="report.injury_time" class="input-lg"/>
+    </div>
+    <div class="relative">
+      <input type="text" id="witnessesTxt" name="witnessesTxt" 
+        placeholder="{{_T('Witnesses')}}" ng-cloak
+        ng-model="report.witnesses" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="locationTxt" name="locationTxt"
+        placeholder="{{_T('Location')}}" ng-cloak
+        ng-model="report.location" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="circumstancesTxt" name="circumstancesTxt" 
+        placeholder="{{_T('Circumstances')}}" ng-cloak
+        ng-model="report.circumstances" class="input-lg" capitalize-first/>
+    </div>
+
+    <div class="relative">
+      <input type="text" id="descriptionTxt" name="descriptionTxt" 
+        placeholder="{{_T('Description of Event')}}" ng-cloak
+        ng-model="report.event_discription" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="injuriesTypeTxt" name="injuriesTypeTxt" 
+        placeholder="{{_T('What Injuries Occurred')}}" ng-cloak
+        ng-model="report.injuries_type" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="ppeTxt" name="ppeTxt" 
+        placeholder="{{_T('What PPE Being Used')}}" ng-cloak
+        ng-model="report.ppe_used" class="input-lg" capitalize-first/>
+    </div>
+    <div class="relative">
+      <input type="text" id="assistanceProvidedTxt"  ng-cloak
+        placeholder="{{_T('Medical Assistance Provided')}}" name="assistanceProvidedTxt"
+        ng-model="report.medical_assistance_provided" 
+        class="input-lg" capitalize-first/>
+    </div>
+
+    <br/>
+      <button type="submit" role="submit" 
+        class="btn btn-primary btn-lg btn-block"  ng-cloak
+        data-loading-text="{{_T('Saving...')}}">
+        {{_T('Save')}}
+      </button>
+
+      <button type="button" id="camera-button" 
+      class="btn btn-primary btn-lg btn-block btn-picture"  ng-cloak
+        ng-click="takePic()">{{_T('Take a Photo')}}</button>
+      <button type="button" id="disable-button" class="btn btn-primary btn-lg btn-block btn-picture hidden"  ng-cloak>{{_T('Uploading image. Please wait...')}}</button>    
+  </form>
+</div> 
+
+<br/><br/>
+
+  <div class="col-xs-8 col-xs-offset-2 text-center" style="margin-top: 10px;">
+    <div ng-class="imagectrl" id="picupload" class="hidden">
+      <img ng-src={{file}} ng-repeat="file in files" style="height:150px; width:150px;" ng-cloak></img>
+      <!-- <img ng-src="Logo.png" style="height:100px; width:100px;"> -->
+    </div>
+  </div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>  
+
+
+<script>
+  //$('#navbar div:eq(1)').html('<a class="logout">Add Report</a>');
+</script>
+
+
+

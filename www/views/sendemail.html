@@ -1,0 +1,39 @@
+<div class="app-header">
+  <span class="project-name" ng-cloak>{{_T('Send Email')}}</span>
+</div>
+
+<div id="mailsent" class="hidden" style="margin-top:5px;">
+  <div class="alert alert-success">
+    <p ng-cloak>{{_T('Email successfully sent.')}}</p>
+  </div> 
+</div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <form id="emailForm" class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="usernameTxt" ng-cloak>{{_T('Email')}}</label>  
+            <div class="controls">
+              <input type="email" id="emailTxt" name="emailTxt" ng-model="user1.email" class="form-control" />
+              <br><br>
+              
+              <select id="usernameselect" name="usernameTxt" ng-options="email for email in emails" ng-model="sendemail" class=" form-control" ng-change="selectemail()"
+              style="width: 95%;height: 35px;background-color: #fff; margin-top: 10px;" placeholder="Select">
+                <option value="" ng-cloak>{{_T('Or choose from this list')}}</option>
+              </select>
+
+              <br><br>
+              <!-- <input type="text" id="usernameTxt" name="usernameTxt" ng-model="user1.first_name" class="form-control"  /> -->
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button type="submit" role="submit" class="btn btn-primary btn-block" data-loading-text="{{_T('Please wait. Sending email...')}}" style="margin-top: 10px;width: 95%;" ng-cloak>
+              {{_T('Send')}}
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

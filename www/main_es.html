@@ -1,0 +1,183 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="spinningwheel/spinningwheel.css">
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/Font-Awesome/css/font-awesome.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/fonts/roboto.css?_=1">
+    <link rel="stylesheet" href="styles/fonts/open_sanslight.css?_=2">
+
+    <link rel="stylesheet" href="styles/main.css?_=1">
+    <link rel="stylesheet" href="styles/checkbox.css?_=1">
+    <!-- endbuild -->
+  </head>
+   
+  <body ng-app="CCS-Safety">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div  class="header navbar-fixed-top" ng-controller="HeaderCtrl">
+        <div class="row" id="navbar" ng-class="{'bg-white':isBackAllowed()}">
+            <div class="col-xs-3" id="goback_div" style="visibility: hidden;">
+                <a class="back text-left block" 
+                    ng-show="isBackAllowed()"
+                    ng-click="gotoBack()" ng-cloak>
+                    &lt; {{_T('Back')}}
+                </a>
+            </div>
+            
+            <div class="col-xs-6 text-center" id="logout_div" style="visibility: hidden;">
+                <a id="logout" class="logout"
+                 ng-show="isBackAllowed()"
+                 ng-click="logout()" ng-cloak>
+                 {{_T('Logout')}}
+                </a>
+            </div>
+          
+            <div class="col-xs-3 text-center">
+                <a class="col-xs-12 text-right home" 
+                    ng-show="isHomeAllowed()" 
+                    ng-click="gotoHome()" ng-cloak>
+                    <i class="fa-icon fa-home"></i>
+                </a>
+            </div>
+            <!--a id="logout" class="btn col-xs-4"  ng-click="logout()" style="margin-left: -29%;display:inline-block;color: black;font-size:large;">
+                Logout 
+            </a> 
+
+            <a class="btn col-xs-4" ng-show="isHomeAllowed()" ng-click="gotoHome()" style="display:inline-block;color: black;font-size:x-large;">
+                <i class="fa fa-home"></i>
+            </a-->
+        </div>
+        <div class="row hidden" id="newnavbar" >
+           <!--  <a class="btn col-xs-3" ng-show="isHomeAllowed()" ng-click="gotoLogin()" style="display:inline-block;color: black;font-size:x-large;">
+                <i class="fa fa-chevron-left" style="margin-left: -42%;"></i>Login
+            </a> -->
+            <a class="btn col-xs-8" ng-show="isBackAllowed()" ng-click="gotoLogin()" style="font-size:large;color: black;">
+                <span class="fa fa-chevron-left" style="margin-left: -42%;"></span>{{_T('Login')}}
+            </a>  
+        </div>
+    </div>
+
+    
+    <div  class="container" ng-view="" style="height: 100%;"></div>
+
+   
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+
+    <script src="scripts/locales/es.js"></script>
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-loader/angular-loader.js"></script>
+    <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
+    <script src="bower_components/qtip2/jquery.qtip.js"></script>
+    <script src="bower_components/qtip2/basic/jquery.qtip.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="cordova.js"></script>
+    <script src="spinningwheel/spinningwheel.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/projectmgr.js"></script>
+    <script src="scripts/controllers/categorylist.js"></script>
+    <script src="scripts/controllers/answer.js"></script>
+    <script src="scripts/controllers/questionlist.js"></script>
+    <script src="scripts/controllers/incidentreport.js"></script>
+    <script src="scripts/controllers/newproject.js"></script>
+    <script src="scripts/services/api.js"></script>
+    <script src="scripts/services/headersauthinterceptor.js"></script>
+    <script src="scripts/services/responseauthinterceptor.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/checklistmgr.js"></script>
+    <script src="scripts/controllers/checklist.js"></script>
+    <script src="scripts/controllers/projectlist.js"></script>
+    <script src="scripts/controllers/footer.js"></script>
+    <script src="scripts/services/sharedata.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/editproject.js"></script>
+    <script src="scripts/controllers/sendemail.js"></script>
+    <script src="scripts/controllers/passwordreset.js"></script>
+    <script src="scripts/controllers/unresolved.js"></script>
+    <script src="scripts/controllers/unanswered.js"></script>
+    <script src="scripts/controllers/unansweredemail.js"></script>
+    <script src="scripts/controllers/incident.js"></script>
+    <script src="scripts/controllers/showincident.js"></script>
+    <script>
+      
+      var app = {
+        // Application Constructor
+        initialize: function() {
+          this.bindEvents();
+        },
+        // Bind Event Listeners
+        //
+        // Bind any events that are required on startup. Common events are:
+        // 'load', 'deviceready', 'offline', and 'online'.
+        bindEvents: function() {
+          document.addEventListener('deviceready', this.onDeviceReady, false);
+        },
+        // deviceready Event Handler
+        //
+        // The scope of 'this' is the event. In order to call the 'receivedEvent'
+        // function, we must explicitly call 'app.receivedEvent(...);'
+        onDeviceReady: function() {
+          app.receivedEvent('deviceready');
+        },
+        // Update DOM on a Received Event
+        receivedEvent: function(id) {
+          return;
+          var parentElement = document.getElementById(id);
+          var listeningElement = parentElement.querySelector('.listening');
+          var receivedElement = parentElement.querySelector('.received');
+          
+          listeningElement.setAttribute('style', 'display:none;');
+          receivedElement.setAttribute('style', 'display:block;');
+          
+          console.log('Received Event: ' + id);
+          
+        }
+      };
+    
+    app.initialize();
+
+
+    setTimeout(function(){
+	    $('#goback_div').css('visibility', 'visible');
+	    $('#logout_div').css('visibility', 'visible');
+    }, 500);
+
+    </script>
+    
+
+    <!-- endbuild -->
+</body>
+</html>

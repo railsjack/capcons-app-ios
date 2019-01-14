@@ -1,0 +1,49 @@
+<div class="app-header">
+  Sign up Page
+</div>
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <form id="signupForm" class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="emailTxt">Email </label>  
+            <div class="controls">
+              <input type="text" id="emailTxt" name="emailTxt" ng-model="user.email" class="form-control"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="firstNameTxt">User Name</label>  
+            <div class="controls">
+              <input type="text" id="firstNameTxt" name="firstNameTxt" ng-model="user.first_name" class="form-control"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="lastNameTxt">Last Name </label>  
+            <div class="controls">
+              <input type="text" id="lastNameTxt" name="lastNameTxt" ng-model="user.last_name" class="form-control" capitalize-first/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="passwordTxt">Password </label>  
+            <div class="controls">
+              <input type="password" id="passwordTxt" name="passwordTxt" ng-model="user.password" class="form-control"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="passwordConfirmTxt">Password Confirmation</label>  
+            <div class="controls">
+              <input type="password" id="passwordConfirmTxt" name="passwordConfirmTxt" ng-model="user.password_confirmation" class="form-control"/>
+            </div>
+          </div>
+          <br/>
+          <div class="button-group">
+            <button type="submit" role="submit" class="btn btn-primary">
+              Sign up
+            </button>
+            <span class="btn btn-warning" ng-click="gotoBack()"> Cancel</span>  
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

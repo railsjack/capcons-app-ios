@@ -1,0 +1,140 @@
+<div class="app-header">
+  <span class="project-name" ng-cloak>
+    {{_T('Incident Report details')}}
+  </span>
+</div>
+<br/>
+<div class="container-fluid">
+  <div class="container">
+    <div class="content" style="width:95%; margin: 0 auto;">
+      <div class="">
+        <div class="login-form">
+          <table class="table table-striped">
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+              {{_T('Report Type')}}
+              </td>
+              <td ng-cloak>{{incident.report_type}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Your Name')}}
+              </td>
+              <td ng-cloak>{{incident.your_name}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Job Title')}}
+              </td>
+              <td ng-cloak>{{incident.job_title}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Injury Date')}}
+              </td>
+              <td ng-cloak>{{incident.injury_date}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Time of Injury')}}
+              </td>
+              <td ng-cloak>{{incident.injury_time}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Witnesses')}}
+              </td>
+              <td ng-cloak>{{incident.witnesses}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Location')}}
+              </td>
+              <td ng-cloak>{{incident.location}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('Circumstances')}}
+              </td>
+              <td ng-cloak>{{incident.circumstances}}</td>
+            </tr>
+
+            <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+              {{_T('Description of Event')}}
+              </td>
+              <td ng-cloak>{{incident.event_discription}}</td>
+            </tr>
+
+             <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+                {{_T('What Injuries Occurred')}}
+              </td>
+              <td ng-cloak>{{incident.injuries_type}}</td>
+            </tr>
+
+             <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+              {{_T('What PPE Being Used')}}
+              </td>
+              <td ng-cloak>{{incident.ppe_used}}</td>
+            </tr>
+
+             <tr>
+              <td class="td_width" style="background-color: lightgray;" ng-cloak>
+              {{_T('Medical Assistance Provided')}}</td>
+              <td ng-cloak>{{incident.medical_assistance_provided}}</td>
+            </tr>
+              
+            <div id="pic1" class="hidden">
+            <tr>
+              <td ng-cloak colspan="2">{{_T('Image(s)')}}</td>
+            </tr>
+            <tr>
+              <td colspan="2"><img ng-src={{filea}} ng-repeat="filea in fileas" style="height:150px; width:150px;"></img></td>
+            </tr>
+            </div>
+
+            <tr>
+              <td colspan="2" style="padding:2px;">
+                <div style="padding: 10px; border: solid 1px green; border-radius: 5px; ">
+                  <form id="emailForm" class="form-horizontal">
+                    
+                    <div id="mailsent" class="hidden" style="margin-top:5px;">
+                      <div class="alert alert-success">
+                        <p ng-cloak>{{_T('Email successfully sent.')}}</p>
+                      </div> 
+                    </div>
+
+                    <div style="margin-bottom: 10px; "><strong ng-cloak>
+                      {{_T('Send Email')}}
+                    </strong></div>
+                    <input type="email" id="emailTxt" name="emailTxt" ng-model="user1.email" class="form-control" style="width: 100%;"  ng-cloak
+                    placeholder="{{_T('Email')}}" />
+
+                    <select id="usernameselect" name="usernameTxt" ng-options="email for email in emails" ng-model="sendemail" class=" form-control" ng-change="selectemail()"
+                    style="width: 100%;height: 35px;background-color: #fff; margin-top: 10px;" placeholder="Select">
+                      <option value="" ng-cloak>{{_T('Or choose from this list')}}</option>
+                    </select>
+                    <input type="submit" value="{{_T('Send Email')}}" class="btn btn-primary btn-block" style="margin-top: 10px;width: 100%;" ng-click="sendIncidentEmail()" data-loading-text="{{_T('Please wait. Sending email...')}}" ng-cloak />
+
+                  </form>
+                </div>
+              </td>
+              
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>         
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>

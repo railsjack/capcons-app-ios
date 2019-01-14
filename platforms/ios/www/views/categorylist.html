@@ -1,0 +1,28 @@
+<!--style>
+  .app-header{
+    line-height: 20px;
+  }
+</style-->
+<div class="app-header category">
+  <span class="project-name">
+    {{_T('Select a Category')}}
+  </span>
+  <input ng-model="query" style="float: right; width: 40%" />
+</div>
+
+<!--div id="notice" class="hidden">
+	<div class="alert notice">
+		<p>{{notice}}</p>
+	</div> 
+</div-->
+<div class="frame fixed container">
+  <div data-ng-repeat="i in catls | filter:query" class="list_item" id="list_item">
+    <a href="" ng-click="selectcatls()" id="{{i.key}}" ng-cloak>
+      <div class="aa">
+      {{i.value}}
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- <button id="unresolved" class="btn btn-primary btn-xs hidden" ng-click="unresolved()">Unresolved</button> -->

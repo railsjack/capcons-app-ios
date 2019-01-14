@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FCFC7221-A9CE-4C0C-A76F-398249E29B31</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CCS-Safety</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>28296D8FCE1940CB2C4FA4E5BE4DD010F6377A44</key>
+		<string>https://bitbucket.org/jinnahrae/capcons-app-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/CCS-Safety.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>28296D8FCE1940CB2C4FA4E5BE4DD010F6377A44</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/jinnahrae/capcons-app-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>28296D8FCE1940CB2C4FA4E5BE4DD010F6377A44</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>28296D8FCE1940CB2C4FA4E5BE4DD010F6377A44</string>
+			<key>IDESourceControlWCCName</key>
+			<string>capcons-app-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

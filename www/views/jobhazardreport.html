@@ -1,0 +1,69 @@
+<div class="app-header incident" >
+  <span class="project-name" ng-cloak>
+    New Job Hazard Analysis
+  </span>
+</div>
+
+<div class="row">
+  <form id="reportForm" class="form-horizontal">
+    <div class="relative">
+      <textarea id="scopeTxt" name="scopeTxt" style="width: 100%"
+        placeholder="Scope of work to be performed" ng-cloak
+        ng-model="report.sow" class="input-lg" capitalize-first></textarea>
+    </div>
+    <br />
+    <div class="relative">
+      <textarea id="criticalTxt" name="criticalTxt" style="width: 100%" 
+        placeholder="What are the critical steps?" ng-cloak
+        ng-model="report.criticalsteps" class="input-lg" capitalize-first></textarea>
+    </div>
+    <br />
+    <div class="relative">
+      <textarea id="situationTxt" name="situationTxt"  style="width: 100%"
+        placeholder="What are the error likely situations" ng-cloak
+        ng-model="report.situations" class="input-lg" capitalize-first></textarea>
+    </div>
+    <br />
+    <div class="relative">
+      <textarea id="worstTxt" name="worstTxt"  style="width: 100%"
+        placeholder="What is the worst that can happen?" ng-cloak
+        ng-model="report.worsthappen" class="input-lg" capitalize-first></textarea>
+    </div>
+    <br />
+    <div class="relative">
+      <textarea id="defensesTxt" name="defensesTxt" style="width: 100%"
+        placeholder="What defenses are in place?" ng-cloak
+        ng-model="report.defenses" class="input-lg" capitalize-first></textarea>
+    </div>
+    
+    <br/>
+      <button type="submit" role="submit" 
+        class="btn btn-primary btn-lg btn-block"  ng-cloak
+        data-loading-text="Saving...">
+        Save
+      </button>
+
+      <button type="button" id="camera-button" 
+      class="btn btn-primary btn-lg btn-block btn-picture"  ng-cloak
+        ng-click="takeHazardPic()">Take a Photo</button>
+      <button type="button" id="disable-button" class="btn btn-primary btn-lg btn-block btn-picture hidden"  ng-cloak>Uploading image. Please wait...</button>    
+  </form>
+</div> 
+
+<br/><br/>
+
+  <div class="col-xs-8 col-xs-offset-2 text-center" style="margin-top: 10px;">
+    <div ng-class="imagectrl" id="picupload" class="hidden">
+      <img ng-src={{file}} ng-repeat="file in files" style="height:150px; width:150px;" ng-cloak></img>
+      <!-- <img ng-src="Logo.png" style="height:100px; width:100px;"> -->
+    </div>
+  </div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>  
+
+
+<script>
+  //$('#navbar div:eq(1)').html('<a class="logout">Add Report</a>');
+</script>
+
+
+
